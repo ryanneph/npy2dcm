@@ -174,7 +174,7 @@ class BaseVolume:
 if __name__ == "__main__":
     voxel = (1,1,1) # [unit: mm]
     size = np.ceil(np.array([101,101,300])/voxel).astype(int)
-    frame = FrameOfReference(start=(0,0,0), spacing=voxel, size=size)
+    frame = FrameOfReference(start=(0,0,0), spacing=voxel, size=size[::-1])
     arr = np.ones(size)
     vol = BaseVolume.fromArray(arr, frame)
     print('volume shape: '+str(arr.shape))
